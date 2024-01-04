@@ -6,16 +6,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   <ion-item>
     <ion-label position="stacked">Working Description</ion-label>
     <ion-input [(ngModel)]="description" placeholder="Enter description"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Start Time</ion-label>
-    <ion-datetime displayFormat="h:mm A" [(ngModel)]="startTime"></ion-datetime>
+    <ion-label position="stacked">Start Time</ion-label>
+    <ion-datetime [(ngModel)]="startTime">
+      <ion-buttons slot="buttons">
+        <ion-button (click)="recordTime()">Record Time</ion-button>
+        <ion-button (click)="stopTimer()">Stop Time</ion-button>
+      </ion-buttons>
+    </ion-datetime>
   </ion-item>
 
-  <ion-button expand="full" (click)="recordTime()">Record Time</ion-button>
+  <ion-item *ngIf="timerSubscription">
+    <ion-label>Elapsed Time</ion-label>
+    <ion-note slot="end">{{ formatElapsedTime() }}</ion-note>
+  </ion-item>
 </ion-content>
