@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Record Time
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Working Description</ion-label>
+    <ion-input [(ngModel)]="description" placeholder="Enter description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Start Time</ion-label>
+    <ion-datetime displayFormat="h:mm A" [(ngModel)]="startTime"></ion-datetime>
+  </ion-item>
+
+  <ion-button expand="full" (click)="recordTime()">Record Time</ion-button>
+</ion-content>
