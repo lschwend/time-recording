@@ -26,4 +26,8 @@
     <ion-label>Elapsed Time</ion-label>
     <ion-note slot="end">{{ formatElapsedTime() }}</ion-note>
   </ion-item>
+  <ion-item *ngIf="endtime">
+    <ion-label>Total Time</ion-label>
+    <ion-note slot="end">{{ formatEndTime() }}</ion-note>
+  </ion-item>
 </ion-content>
