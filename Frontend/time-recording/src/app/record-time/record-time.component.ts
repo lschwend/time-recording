@@ -11,7 +11,7 @@ import { TimeRecord } from '../models/TimeRecordModel';
 })
 export class RecordTimeComponent {
   description: string = '';
-  startTime: string = new Date().toUTCString();;
+  startTime: string = new Date().toISOString();;
   endtime: string = ''
   elapsedTime: number = 0;
   timerSubscription: Subscription | undefined;
@@ -40,7 +40,8 @@ export class RecordTimeComponent {
       this.timerSubscription = undefined;
       const date = new Date(this.startTime)
       date.setSeconds(date.getSeconds() + this.elapsedTime);
-      this.endtime = date.toUTCString();
+      this.endtime = date.toISOString();
+      
       console.log('Time Recorded:', { description: this.description, endtime: this.endtime });
       this.timeRecord = new TimeRecord(this.description, this.startTime, this.elapsedTime);
       this.timeTrackingService.post(this.timeRecord);

@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("time")
 public class TimeRecordController {
     
-    @PostMapping("/saveRecord")
-    public void postMethodName(@RequestBody TimeRecordDTO entity) {
-        System.out.println("test");
-        
+    @PostMapping("/api/record-time")
+    public String recordTime(@RequestBody TimeRecordDTO timeRecord) {
+        // Implement your logic to handle the received time record
+        System.out.println("Received Time Record: " + timeRecord);
+        return "Time recorded successfully";
     }
     
 }
