@@ -1,10 +1,14 @@
 package com.github.lschwend.timerecording.timerecording.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Builder;
+import lombok.Data;
 
+@Data
+@Builder
 @Entity
 public class User {
 
@@ -14,7 +18,7 @@ public class User {
 
     private String username;
     private String password;
-    private boolean enabled;
+    private String roles;
 
     // Getters and setters
 }
